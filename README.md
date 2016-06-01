@@ -1,4 +1,5 @@
 # 4InARow
+<<<<<<< HEAD
 The scope of this project is create a machine that taugth itself using a regard algorithm.
 
 ![Alt text](/4inarow.png)
@@ -45,3 +46,7 @@ Note that the database is dual, there is a version for the first player and anot
 
 
 
+=======
+
+![Alt text](/4inarow.png)
+>>>>>>> 9559ec80e60e44f869d13263dabe65d82a67adad
