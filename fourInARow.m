@@ -6,6 +6,7 @@ close all
 %%test
 %playsDatabase=zeros(8,8,2);
 %prizesDatabase=zeros(2,8);
+%[newPlaysDatabase,newPrizesDatabase]=fourInARow(playsDatabase,prizesDatabase)
 %%
 
 t=zeros(8,8);
