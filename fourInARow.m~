@@ -25,7 +25,7 @@ for z=1:63 %%?
     %disp('PLAYER 1 (RED) TURN')
     selectedColumn=whereImove(t,playsDatabase,prizesDatabase);
     t=move(t,selectedColumn,1);
-    gameDatabase1=cat(3,gameDatabase1,t);
+    gameDatabase1=cat(3,gameDatabase1,t)
     gameWhere2=cat(2,gameWhere2,selectedColumn);
    % gui(t);
     if whoWin(t)==1 ;
