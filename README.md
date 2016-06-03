@@ -45,7 +45,7 @@ Train the system with 10000 games: takes all the night (6h), compute 150000 scen
 
 ![Alt text](/10000.png)
 
-Assuming that there are 3^64 possible scenarios, and each scenario needs to be played one time in each column, and assuming that the time per game will stay constant, the time required to compute a perfect database is 4.578*10^30 hours (more that the age of the univers). The size of this database is around 1.14 * 10^23 GB.
+Assuming that there are 3^64 possible scenarios, and each scenario needs to be played one time in each column, and assuming that the time per game will stay constant, the time required to compute a perfect database is 4.578*10^30 hours (more than the age of the universe). The size of this database is around 1.14 * 10^23 GB.
 
 
 
