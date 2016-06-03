@@ -16,7 +16,7 @@ The system works as follows:
 The first step is train the system using:
 >>[db1,db2]=PlayAndLearn(number of games)
 
-Be careful with the number of games, the time wasted in each game is bigger. 150 games takes 20 seconds, 1500 games takes 15 minutes.
+Be careful with the number of games, the time wasted in each game is bigger. 150 games takes 20 seconds, 1500 games takes 15 minutes. (The graph show the duration of each game in seconds)
 
 ![Alt text](/time1500iterations.png)
 
