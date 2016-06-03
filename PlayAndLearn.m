@@ -1,10 +1,10 @@
 function [ playsDatabase,prizesDatabase ] =PlayAndLearn(iterations )
 s = zeros(1,iterations);
 
-playsDatabase=ones(8,8,2);
-prizesDatabase=ones(2,8);
-playsDatabase(8,2,2)=0;
-playsDatabase(8,2,1)=0;
+prizesDatabase=ones(1,8);
+playsDatabase{1}={3,3,3,3,3,3,1,3,3};
+
+totalTime=0;
 for i=1:iterations
     tic
    fprintf('%d / %d \n',i,iterations);
@@ -12,9 +12,9 @@ for i=1:iterations
     playsDatabase=newPlaysDatabase;
     prizesDatabase=newPrizesDatabase;
     s(i)=toc;
-
+totalTime=totalTime+s(i);
 end
 plot(s);
-
+fprintf('Time elapsed: %f',totalTime);
 end
 

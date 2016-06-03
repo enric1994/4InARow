@@ -28,15 +28,26 @@ The second step is play with your machine!
 -To create a richer database a random factor is added (only during training), each time the system make a decision there is a chance that a random number replace the good choice.
 This mistake on purpose improve the early game and generate new scenarios.
 
--(TODO)To make a bigger database, a function that transforms each scenario in a simplified version without losing information is required. Otherwise the database will contain 3^64 possible scenarios.
+-To make a bigger database, a function that transforms each scenario in a simplified version without losing information is required. 
 
--(TODO)Mirror the scenarios to half the database. 
+![Alt text](/standardscenario.png)
 
--(TODO)Reduce the training time optimizing the matlab code.
+Using the '3' as end of column, a 64 matrix is converted in a 13 array.
 
-#Comments
+![Alt text](/transformedscenario.png)
 
-Note that the database is dual, there is a version for the first player and another for the second player. Now only the database for the second player is used.
+
+-(TODO)Mirror the scenarios to half the database using the symmetrical scenarios. 
+
+-(TODO)Reduce the training time optimizing the matlab code. Some function takes a lot of time.
+
+Train the system with 10000 games takes all the night (6h), compute 150000 scenarios and use 5MB of data.
+
+![Alt text](/10000.png)
+
+Assuming that there are 3^64 possible scenarios, and each scenario needs to be played one time in each column, and assuming that the time per game will stay constant, the time required to compute a perfect database is 4.578*10^30 hours (more that the age of the univers). The size of the database needed is around 1.14 * 10^23 GB.
+
+
 
 
 
