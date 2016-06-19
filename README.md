@@ -7,20 +7,25 @@ The scope of this project is create a machine that taugth itself using a regard 
 
 The system works as follows:
 
--Every move of the game is recorded, when the game ends, depending on the results a regard +1 or -1 is assigned to each move.
+-Every move of the game is recorded, when the game ends, depending on the winner a regard +1 or -1 is assigned to each move.
 
 -To decide the next move the system only check the current scenario in the database and choose the move with the best regard. If the scenario don't exists in the database, the machine choose a random column.
 
 #How to use it?
 
-The first step is train the system using:
->>[db1,db2]=PlayAndLearn(number of games)
+1. Add to path the files
+
+2. Import a and b that contains a database with more than 100000 scenarios
+
+3. (Optional) To train the system: 
+
+>> [db1,db2]=PlayAndLearn(number of games, playsDatabase,prizesDatabase)
 
 Be careful with the number of games, the time wasted in each game is bigger. 150 games takes 20 seconds, 1500 games takes 15 minutes. (The graph show the duration of each game in seconds)
 
 ![Alt text](/time1500iterations.png)
 
-The second step is play with your machine!
+4. Play with the trained system:
 
 >>playVSHuman(db1,db2)
 
