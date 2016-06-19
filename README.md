@@ -15,11 +15,10 @@ The system works as follows:
 
 - Add to path the files
 
-- Import a.mat and b.mat that contains a database with more than 100000 scenarios (12h of training).
-
 - To train the system: 
 
->> [db1,db2]=PlayAndLearn(number of games, playsDatabase,prizesDatabase)
+>> [a,b]=PlayAndLearn(number of games)
+I recommend 300 games (1 minute of training)
 
 Be careful with the number of games, the time wasted in each game is bigger. 150 games takes 20 seconds, 1500 games takes 15 minutes. (The graph show the duration of each game in seconds)
 
@@ -28,7 +27,7 @@ Be careful with the number of games, the time wasted in each game is bigger. 150
 
 - Play with the trained system:
 
->>playVSHuman(db1,db2)
+>>playVSHuman(a,b)
 
 #Improvements
 -To create a richer database a random factor is added (only during training), each time the system make a decision there is a chance that a random number replace the good choice.
