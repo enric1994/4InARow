@@ -25,6 +25,7 @@ Be careful with the number of games, the time wasted in each game is bigger. 150
 
 ![Alt text](/time1500iterations.png)
 
+
 4. Play with the trained system:
 
 >>playVSHuman(db1,db2)
