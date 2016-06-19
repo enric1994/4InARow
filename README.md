@@ -13,11 +13,11 @@ The system works as follows:
 
 #How to use it?
 
-1. Add to path the files
+- Add to path the files
 
-2. Import a and b that contains a database with more than 100000 scenarios
+- Import a.mat and b.mat that contains a database with more than 100000 scenarios (12h of training).
 
-3. (Optional) To train the system: 
+- To train the system: 
 
 >> [db1,db2]=PlayAndLearn(number of games, playsDatabase,prizesDatabase)
 
@@ -26,7 +26,7 @@ Be careful with the number of games, the time wasted in each game is bigger. 150
 ![Alt text](/time1500iterations.png)
 
 
-4. Play with the trained system:
+- Play with the trained system:
 
 >>playVSHuman(db1,db2)
 
