@@ -1,4 +1,4 @@
-function [newPlaysDatabase,newPrizesDatabase] = fourInARow(playsDatabase,prizesDatabase )
+function [winner,newPlaysDatabase,newPrizesDatabase] = fourInARow(playsDatabase,prizesDatabase )
 %BUGS:
 %Full columns
 %close all
@@ -57,17 +57,17 @@ if winner==1
     gameDatabase1(:,:,length(gameWhere1))=[];
     gameWhere1(1)=[];
     
-    
     for i=1:length(gameWhere1)
         %transform database
         tgameDatabase1{i}=transform(gameDatabase1(:,:,i));
        
         %check if the play exist in database
         repeated=0;
+        
         for d=1:size(playsDatabase,2)
             if isequaln(tgameDatabase1{i},playsDatabase{d})==0
                 repeated=d;
-                break;%%
+                
             end
         end
         %new play, initialize regards to 0
@@ -78,37 +78,36 @@ if winner==1
         end
         %existing play, set prizes
         if repeated~=0
-            prizesDatabase(d,gameWhere1(i))=prizesDatabase(d,gameWhere1(i))-1;
+            prizesDatabase(repeated,gameWhere1(i))=prizesDatabase(repeated,gameWhere1(i))-1;
         end
-        repeated=0;
    
 end
     
     %DB2, for plays of the p1
-%     gameWhere2(1)=[];
-%     for i=1:length(gameWhere2) %%
-%         tgameDatabase2{i}=transform(gameDatabase2(:,:,i));
-%         %check if the play exist in database
-%         repeated=0;
-%         for d=1:size(playsDatabase,2)
-%             if isequaln(tgameDatabase2{i},playsDatabase{d})==1
-%                 repeated=d;
-%                 break;%%
-%             end
-%         end
-%         %new play, initialize regards to 0
-%         if repeated==0
-%             playsDatabase=cat(2,playsDatabase,tgameDatabase2{i});
-%             prizesDatabase=cat(1,prizesDatabase,[0,0,0,0,0,0,0,0,]);
-%             prizesDatabase(size(prizesDatabase,1),gameWhere2(i))=prizesDatabase(size(prizesDatabase,1),gameWhere2(i))+1;
-%             %positive regard
-%         end
-%         %existing play, set prizes
-%         if repeated~=0
-%             prizesDatabase(d,gameWhere2(i))=prizesDatabase(d,gameWhere2(i))+1;
-%         end
-%         
-%     end
+    gameWhere2(1)=[];
+    
+    for i=1:length(gameWhere2) %%
+        tgameDatabase2{i}=transform(gameDatabase2(:,:,i));
+        %check if the play exist in database
+        repeated=0;
+        for d=1:size(playsDatabase,2)
+            if isequaln(tgameDatabase2{i},playsDatabase{d})==1
+                repeated=d;
+            end
+        end
+        %new play, initialize regards to 0
+        if repeated==0
+            playsDatabase=cat(2,playsDatabase,tgameDatabase2{i});
+            prizesDatabase=cat(1,prizesDatabase,[0,0,0,0,0,0,0,0,]);
+            prizesDatabase(size(prizesDatabase,1),gameWhere2(i))=prizesDatabase(size(prizesDatabase,1),gameWhere2(i))+1;
+            %positive regard
+        end
+        %existing play, set prizes
+        if repeated~=0
+            prizesDatabase(repeated,gameWhere2(i))=prizesDatabase(repeated,gameWhere2(i))+1;
+        end
+        
+    end
     
 end
 
@@ -117,6 +116,7 @@ if winner==2
     %gameDatabase1(:,:,length(gameWhere1))=[];
     gameDatabase1(:,:,1)=[];
     gameWhere1(1)=[];
+    
     for i=1:length(gameWhere1)
         tgameDatabase1(i,:)=transform(gameDatabase1(:,:,i));
         %check if the play exist in database
@@ -124,7 +124,6 @@ if winner==2
         for d=1:size(playsDatabase,2)
             if isequal(tgameDatabase1{i},playsDatabase{d})==1
                 repeated=d;
-                break;
             end
             
         end
@@ -136,38 +135,38 @@ if winner==2
         end
         %existing play, set prizes
         if repeated~=0
-            prizesDatabase(d,gameWhere1(i))=prizesDatabase(d,gameWhere1(i))+1;
+            prizesDatabase(repeated,gameWhere1(i))=prizesDatabase(repeated,gameWhere1(i))+1;
         end
         
     end
     %DB2
-%     gameDatabase2(:,:,length(gameWhere2))=[];
-%     gameWhere2(1)=[];
-%     for i=1:length(gameWhere2)
-%         tgameDatabase2(i,:)=transform(gameDatabase2(:,:,i));
-%         
-%         %check if the play exist in database
-%         repeated=0;
-%         for d=1:size(playsDatabase,2)
-%             
-%             if isequal(tgameDatabase2{i},playsDatabase{d})==1
-%                 repeated=d;
-%                 break;
-%             end
-%         end
-%         %new play, initialize regards to 0
-%         if repeated==0
-%             playsDatabase=cat(2,playsDatabase,tgameDatabase2(i,:));
-%             prizesDatabase=cat(1,prizesDatabase,[0,0,0,0,0,0,0,0,]);
-%             prizesDatabase(size(prizesDatabase,1),gameWhere2(i))=prizesDatabase(size(prizesDatabase,1),gameWhere2(i))-1;
-%             
-%         end
-%         %existing play, set prizes
-%         if repeated~=0
-%             prizesDatabase(d,gameWhere2(i))=prizesDatabase(d,gameWhere2(i))-1;
-%         end
-%         
-%     end
+    gameDatabase2(:,:,length(gameWhere2))=[];
+    gameWhere2(1)=[];
+    
+    for i=1:length(gameWhere2)
+        tgameDatabase2(i,:)=transform(gameDatabase2(:,:,i));
+        
+        %check if the play exist in database
+        repeated=0;
+        for d=1:size(playsDatabase,2)
+            
+            if isequal(tgameDatabase2{i},playsDatabase{d})==1
+                repeated=d;
+            end
+        end
+        %new play, initialize regards to 0
+        if repeated==0
+            playsDatabase=cat(2,playsDatabase,tgameDatabase2(i,:));
+            prizesDatabase=cat(1,prizesDatabase,[0,0,0,0,0,0,0,0,]);
+            prizesDatabase(size(prizesDatabase,1),gameWhere2(i))=prizesDatabase(size(prizesDatabase,1),gameWhere2(i))-1;
+            
+        end
+        %existing play, set prizes
+        if repeated~=0
+            prizesDatabase(repeated,gameWhere2(i))=prizesDatabase(repeated,gameWhere2(i))-1;
+        end
+        
+    end
     
 end
 

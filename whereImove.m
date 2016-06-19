@@ -14,7 +14,7 @@ while fullColumn==1
              random=0;
              %random move to get a richer database, only during training
              if training==1
-             if randi(4)==1 %Random factor, low values for a best early game.
+             if randi(3)==1 %Random factor, low values for a best early game.
                 col=randi(8); 
              end
              end
